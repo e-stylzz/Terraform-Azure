@@ -14,8 +14,8 @@ provider "azurerm" {
   // client_secret = var.client_secret
   // client_id = var.client_id
   // tenant_id = var.tenant_id
-
-  storage_account_name = "terraform12345eb"
-  container_name = "tfstate"
-
+  backend "azurerm" {
+    storage_account_name = "terraform12345eb"
+    container_name = "tfstate"
+  }
 }
