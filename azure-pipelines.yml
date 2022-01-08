@@ -4,6 +4,20 @@ trigger: none
 
 pr: none
 
+variables:
+  - name: terraform_version
+    value: '1.0.11'
+  - name: backendServiceArm
+    value: 'Terraform'
+  - name: backendAzureRmResourceGroupName
+    value: 'Terraform'
+  - name: backendAzureRmStorageAccountName
+    value: 'terraform12345eb'
+  - name: backendAzureRmContainerName
+    value: 'tfstate'
+  - name: backendAzureRmKey
+    value: 'terraform.tfstate'
+
 pool:
   vmImage: ubuntu-latest
 
@@ -27,7 +41,7 @@ stages :
           backendAzureRmStorageAccountName: ${{ variables.backendAzureRmStorageAccountName }}
           backendAzureRmContainerName: ${{ variables.backendAzureRmContainerName }}
           backendAzureRmKey: ${{ variables.backendAzureRmKey }}
-          workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/'
       - task: TerraformTaskV2@2
         displayName: 'validate'
         inputs:
