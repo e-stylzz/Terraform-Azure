@@ -73,6 +73,6 @@ stages:
             inputs:
               provider: 'azurerm'
               command: 'plan'
-              commandOptions: '-input=false -var-file="../vars/${{ variables.environment }}.tfvars"'
+              #commandOptions: '-input=false -var-file="../vars/${{ variables.environment }}.tfvars"'
               environmentServiceNameAzureRM: ${{ variables.backendServiceArm }}
               workingDirectory: '$(System.DefaultWorkingDirectory)/'
